@@ -12,10 +12,11 @@ First, edit application.conf file located in src/main/resources, inserting mongo
 
 Then execute, from console, typing:
 
-    $ sbt "run <github repository url>"
+    $ sbt "run <https://github.com/OWNER/REPONAME>"
 
 example:
 
     $ sbt "run https://github.com/typesafehub/config/"
 
 
+All scraped data will be available in the MongoDB instance (DB: "github-pull-requests", collection will have this format: OWNER_REPONAME).
