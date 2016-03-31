@@ -18,7 +18,10 @@ object Main {
     val logger = Logger(LoggerFactory.getLogger("github-pr-robber"))
 
     logger info "starting actor system"
-    val url = args(0)
+
+    var url = args(0)
+    if (!url.endsWith("/")) url = (url + "/")
+
     val system = ActorSystem("pull-request-scraper")
     val closedPRs = system.actorOf(Props(classOf[ClosedPullReqsActor]))
     val openPRs = system.actorOf(Props(classOf[OpenPullReqsActor]))
@@ -28,9 +31,6 @@ object Main {
     logger info "sent " + Repository(url) + " to " + closedPRs
     openPRs ! Repository(url)
     logger info "sent " + Repository(url) + " to " + openPRs
-
-    /*val listPrs = new ListPullrequestRequest()
-    listPrs.listPullRequests("typesafehub", "config")*/
 
   }
 

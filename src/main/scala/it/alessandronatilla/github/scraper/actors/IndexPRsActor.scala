@@ -26,7 +26,6 @@ class IndexPRsActor extends Actor {
       val browser = new Browser
       val doc = browser.get(pageUrl)
 
-      //ottengo i link (non assoluti )delle singole PR
       val links: List[String] = doc >> elementList(".issue-title-link") >> attr("href")("a")
       val fullLinks = links.map(link => "https://github.com" + link)
       val terminatorRef = this.context.actorSelection("/user/terminator")
@@ -34,7 +33,6 @@ class IndexPRsActor extends Actor {
       logger info "Sending " + fullLinks.size + " to terminator. Ref:" + terminatorRef
       terminatorRef ! PullRequestTotalNumber(fullLinks.size)
 
-      //fullLinks foreach println
       logger.info("PAGE=" + pageUrl + ", #links=" + fullLinks.size)
       val router = context.actorOf(Props[PullRequestScrapeActor].withRouter(RoundRobinPool(links.size)))
 

@@ -39,7 +39,7 @@ class ClosedPullReqsActor extends Actor {
       } catch {
 
         case _: NoSuchElementException => {
-          logger.info("CATCHED EXCEPTION, 0 pages available")
+          logger.error("0 pages available")
           pages = 1
         }
       }

@@ -86,7 +86,4 @@ class PullRequestScrapeActor extends Actor {
 
   }
 
-  /*case class Entry(title: String, number: Int, state: String, purpose: String, labels: String, milestone: String, participants: String, assignee: String,
-                   stats: String, addedLines: Int, deletedLines: Int, conversation: Seq[String], discussionItems: List[String])*/
-
 }
