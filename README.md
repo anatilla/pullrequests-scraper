@@ -1,5 +1,5 @@
 # pullrequests-scraper
-a Github pull requests comments scraper based on Akka
+a Github pull request comments scraper based on Akka
 
 # dependencies
 - mongodb >= 3.2.3
