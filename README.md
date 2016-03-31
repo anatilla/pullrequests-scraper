@@ -19,4 +19,5 @@ example:
     $ sbt "run https://github.com/typesafehub/config/"
 
 
-All scraped data will be available in the MongoDB instance (DB: "github-pull-requests", collection will have this format: OWNER_REPONAME).
+All scraped data will be available in the MongoDB instance:
+DB named "github-pull-requests" (even if you don't change DB name in application.conf) and collection will be named following the convention OWNER_REPONAME.
