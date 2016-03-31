@@ -39,7 +39,7 @@ class OpenPullReqsActor extends Actor {
         pages = items.filterNot(_ == "Next").last.toInt
       } catch {
         case _: NoSuchElementException => {
-          logger info "CATCHED EXCEPTION, 0 pages available"
+          logger info "0 pages available"
           pages = 1
         }
       }
